@@ -23,13 +23,13 @@ public:
     Sales_data(const std::string &s, unsigned n, double p):bookNo(s), units_sold(n), revenue(n*p)
     { std::cout << "Sales_data(const std::string&, unsigned, double)" << std::endl; }
     
-    Sales_data() : Sales_data("", 0, 0.0f)
+    Sales_data() : Sales_data(" ", 0, 0.0f)
     { std::cout << "Sales_data()" << std::endl; }
     
     Sales_data(const std::string &s) : Sales_data(s, 0, 0.0f)
     { std::cout << "Sales_data(const std::string&)" << std::endl; }
     
-    Sales_data(std::istream &is);
+    Sales_data(std::istream &is):Sale_data(){read(is,*this);}
 
     std::string isbn() const { return bookNo; }
     Sales_data& combine(const Sales_data&);
